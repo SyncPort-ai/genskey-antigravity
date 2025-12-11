@@ -30,6 +30,7 @@ import InVitroTesting from './pages/InVitroTesting';
 import TrialDesign from './pages/TrialDesign';
 import Pharmacovigilance from './pages/Pharmacovigilance';
 import KnowledgeGraph from './pages/KnowledgeGraph';
+import CandidateRanker from './pages/CandidateRanker';
 import * as FinalPages from './pages/FinalBatchPages';
 
 function App() {
@@ -53,7 +54,10 @@ function App() {
                         <Route path="/dashboard" element={<Dashboard />} />
 
                         {/* Discovery Routes */}
-                        <Route path="/discovery/library" element={<StrainLibrary />} />
+                        <Route path="/discovery/strains" element={<StrainLibrary />} />
+                        <Route path="/discovery/target-validation" element={<TargetValidation />} />
+                        <Route path="/discovery/hit-to-lead" element={<HitToLead />} />
+                        <Route path="/discovery/candidate-ranker" element={<CandidateRanker />} />
                         <Route path="/discovery/*" element={<DiscoveryModule />} />
 
                         {/* Design Routes */}
