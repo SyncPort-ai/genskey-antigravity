@@ -37,7 +37,8 @@ const Navigation = ({ onLanguageToggle, currentLang }) => {
                 { label: t('nav.discovery_bgc'), path: '/discovery/bgc' },
                 { label: t('nav.discovery_targets'), path: '/discovery/targets' },
                 { label: t('nav.discovery_library'), path: '/discovery/library' },
-                { label: t('nav.discovery_hit_to_lead'), path: '/discovery/hit-to-lead' }
+                { label: t('nav.discovery_hit_to_lead'), path: '/discovery/hit-to-lead' },
+                { label: '候选排序 Candidate Ranker', path: '/discovery/candidate-ranker' }
             ]
         },
         {
