@@ -17,6 +17,10 @@ import FinancialDashboard from './pages/FinancialDashboard';
 import MLOps from './pages/MLOps';
 import SampleTracking from './pages/SampleTracking';
 import EquipmentManager from './pages/EquipmentManager';
+import TargetValidation from './pages/TargetValidation';
+import RegulatoryAffairs from './pages/RegulatoryAffairs';
+import AnalyticsWorkbench from './pages/AnalyticsWorkbench';
+import CopilotDashboard from './pages/CopilotDashboard';
 import * as Pages from './pages/PlaceholderPages';
 
 function App() {
@@ -68,7 +72,7 @@ function App() {
                         <Route path="/twin/tech-transfer" element={<Pages.TechTransfer />} />
 
                         {/* Discovery extra routes */}
-                        <Route path="/discovery/targets" element={<Pages.TargetValidation />} />
+                        <Route path="/discovery/targets" element={<TargetValidation />} />
                         <Route path="/discovery/hit-to-lead" element={<Pages.HitToLead />} />
 
                         {/* R&D extra routes */}
@@ -80,16 +84,16 @@ function App() {
                         {/* Clinical extra routes */}
                         <Route path="/trial/design" element={<Pages.TrialDesign />} />
                         <Route path="/trial/recruitment" element={<PatientRecruitment />} />
-                        <Route path="/trial/regulatory" element={<Pages.RegulatoryAffairs />} />
+                        <Route path="/trial/regulatory" element={<RegulatoryAffairs />} />
                         <Route path="/trial/pharmacovigilance" element={<Pages.Pharmacovigilance />} />
 
                         {/* Data Science extra routes */}
                         <Route path="/data/mlops" element={<MLOps />} />
-                        <Route path="/data/analytics" element={<Pages.AnalyticsWorkbench />} />
+                        <Route path="/data/analytics" element={<AnalyticsWorkbench />} />
                         <Route path="/data/knowledge-graph" element={<Pages.KnowledgeGraph />} />
 
                         {/* AI Copilot extra routes */}
-                        <Route path="/copilot/dashboard" element={<Pages.CopilotDashboard />} />
+                        <Route path="/copilot/dashboard" element={<CopilotDashboard />} />
                         <Route path="/copilot/workflows" element={<Pages.WorkflowBuilder />} />
                         <Route path="/copilot/marketplace" element={<Pages.AgentMarketplace />} />
 
