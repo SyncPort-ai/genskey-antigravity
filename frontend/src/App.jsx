@@ -6,6 +6,11 @@ import DiscoveryModule from './pages/DiscoveryModule';
 import DesignModule from './pages/DesignModule';
 import TwinModule from './pages/TwinModule';
 import TrialModule from './pages/TrialModule';
+import StrainLibrary from './pages/StrainLibrary';
+import DataLake from './pages/DataLake';
+import CopilotChat from './pages/CopilotChat';
+import ExecutivePortfolio from './pages/ExecutivePortfolio';
+import QualityControl from './pages/QualityControl';
 
 function App() {
     const { i18n } = useTranslation();
@@ -26,10 +31,31 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Navigate to="/dashboard" replace />} />
                         <Route path="/dashboard" element={<Dashboard />} />
+
+                        {/* Discovery Routes */}
+                        <Route path="/discovery/library" element={<StrainLibrary />} />
                         <Route path="/discovery/*" element={<DiscoveryModule />} />
+
+                        {/* Design Routes */}
                         <Route path="/design/*" element={<DesignModule />} />
+
+                        {/* Manufacturing/Twin Routes */}
                         <Route path="/twin/*" element={<TwinModule />} />
+
+                        {/* Clinical/Trial Routes */}
                         <Route path="/trial/*" element={<TrialModule />} />
+
+                        {/* Data Science Routes */}
+                        <Route path="/data/lake" element={<DataLake />} />
+
+                        {/* AI Copilot Routes */}
+                        <Route path="/copilot/chat" element={<CopilotChat />} />
+
+                        {/* Executive Routes */}
+                        <Route path="/executive/portfolio" element={<ExecutivePortfolio />} />
+
+                        {/* Manufacturing/QC Routes */}
+                        <Route path="/twin/qc" element={<QualityControl />} />
                     </Routes>
                 </div>
             </div>

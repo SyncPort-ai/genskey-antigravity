@@ -7,7 +7,12 @@ import {
     FlaskConical,
     Microscope,
     Globe,
-    ChevronRight
+    ChevronRight,
+    Activity,
+    FileText,
+    Database,
+    Bot,
+    TrendingUp
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -19,55 +24,102 @@ const Navigation = ({ onLanguageToggle, currentLang }) => {
     const navItems = [
         {
             id: 'dashboard',
-            icon: LayoutDashboard,
             label: t('nav.dashboard'),
+            icon: LayoutDashboard,
             path: '/dashboard'
         },
         {
             id: 'discovery',
-            icon: Search,
             label: t('nav.discovery'),
-            path: '/discovery',
+            icon: FlaskConical,
             children: [
-                { label: '文件上传 / Upload', path: '/discovery/upload' },
-                { label: '噬菌体检测 / Phage', path: '/discovery/phage' },
-                { label: 'BGC挖掘 / BGC', path: '/discovery/bgc' },
-                { label: '基因组浏览 / Browser', path: '/discovery/genome' },
+                { label: t('nav.discovery_phage'), path: '/discovery/phage' },
+                { label: t('nav.discovery_bgc'), path: '/discovery/bgc' },
+                { label: t('nav.discovery_targets'), path: '/discovery/targets' },
+                { label: t('nav.discovery_library'), path: '/discovery/library' },
+                { label: t('nav.discovery_hit_to_lead'), path: '/discovery/hit-to-lead' }
             ]
         },
         {
             id: 'design',
-            icon: Network,
             label: t('nav.design'),
-            path: '/design',
+            icon: Network,
             children: [
-                { label: '互作网络 / Network', path: '/design/network' },
-                { label: '优化设计 / Optimize', path: '/design/optimize' },
-                { label: '代谢模拟 / Simulate', path: '/design/simulate' },
+                { label: t('nav.design_network'), path: '/design/network' },
+                { label: t('nav.design_formulation'), path: '/design/formulation' },
+                { label: t('nav.design_in_vitro'), path: '/design/in-vitro' },
+                { label: t('nav.design_animal'), path: '/design/animal' },
+                { label: t('nav.design_ai_lab'), path: '/design/ai-lab' }
             ]
         },
         {
             id: 'twin',
-            icon: FlaskConical,
             label: t('nav.twin'),
-            path: '/twin',
+            icon: Activity,
             children: [
-                { label: '批次监控 / Batches', path: '/twin/batches' },
-                { label: '实时数据 / Real-time', path: '/twin/realtime' },
-                { label: '场景分析 / Scenarios', path: '/twin/scenarios' },
+                { label: t('nav.twin_monitor'), path: '/twin/monitor' },
+                { label: t('nav.twin_schedule'), path: '/twin/schedule' },
+                { label: t('nav.twin_qc'), path: '/twin/qc' },
+                { label: t('nav.twin_supply'), path: '/twin/supply' },
+                { label: t('nav.twin_tech_transfer'), path: '/twin/tech-transfer' }
             ]
         },
         {
             id: 'trial',
-            icon: Microscope,
             label: t('nav.trial'),
-            path: '/trial',
+            icon: FileText,
             children: [
-                { label: '安全评估 / Safety', path: '/trial/safety' },
-                { label: '临床试验 / Trials', path: '/trial/clinical' },
-                { label: '合规审计 / Audit', path: '/trial/audit' },
+                { label: t('nav.trial_safety'), path: '/trial/safety' },
+                { label: t('nav.trial_design'), path: '/trial/design' },
+                { label: t('nav.trial_recruitment'), path: '/trial/recruitment' },
+                { label: t('nav.trial_regulatory'), path: '/trial/regulatory' },
+                { label: t('nav.trial_pharmacovigilance'), path: '/trial/pharmacovigilance' }
             ]
         },
+        {
+            id: 'data',
+            label: t('nav.data_science'),
+            icon: Database,
+            children: [
+                { label: t('nav.data_lake'), path: '/data/lake' },
+                { label: t('nav.data_mlops'), path: '/data/mlops' },
+                { label: t('nav.data_analytics'), path: '/data/analytics' },
+                { label: t('nav.data_knowledge_graph'), path: '/data/knowledge-graph' }
+            ]
+        },
+        {
+            id: 'copilot',
+            label: t('nav.copilot'),
+            icon: Bot,
+            children: [
+                { label: t('nav.copilot_dashboard'), path: '/copilot/dashboard' },
+                { label: t('nav.copilot_chat'), path: '/copilot/chat' },
+                { label: t('nav.copilot_workflows'), path: '/copilot/workflows' },
+                { label: t('nav.copilot_marketplace'), path: '/copilot/marketplace' }
+            ]
+        },
+        {
+            id: 'executive',
+            label: t('nav.executive'),
+            icon: TrendingUp,
+            children: [
+                { label: t('nav.executive_portfolio'), path: '/executive/portfolio' },
+                { label: t('nav.executive_finance'), path: '/executive/finance' },
+                { label: t('nav.executive_team'), path: '/executive/team' },
+                { label: t('nav.executive_reports'), path: '/executive/reports' }
+            ]
+        },
+        {
+            id: 'lab',
+            label: t('nav.lab'),
+            icon: Microscope,
+            children: [
+                { label: t('nav.lab_samples'), path: '/lab/samples' },
+                { label: t('nav.lab_equipment'), path: '/lab/equipment' },
+                { label: t('nav.lab_protocols'), path: '/lab/protocols' },
+                { label: t('nav.lab_safety'), path: '/lab/safety' }
+            ]
+        }
     ];
 
     const toggleExpanded = (id) => {
