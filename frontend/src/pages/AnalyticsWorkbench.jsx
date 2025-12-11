@@ -229,10 +229,10 @@ export default function AnalyticsWorkbench() {
                             {microbiomeData.slice(0, 10).map((sample) => (
                                 <tr key={sample.sample_id} className="hover:bg-gray-50">
                                     <td className="font-mono text-sm">{sample.sample_id}</td>
-                                    <td className="font-mono text-sm">{sample.patient_id}</td>
-                                    <td className="text-right">{sample.shannon_diversity.toFixed(2)}</td>
-                                    <td className="text-right">{sample.firmicutes_percent.toFixed(1)}%</td>
-                                    <td className="text-right">{sample.bacteroidetes_percent.toFixed(1)}%</td>
+                                    <td className="font-mono text-sm">{sample.patient_id || 'N/A'}</td>
+                                    <td className="text-right">{sample.shannon_diversity?.toFixed(2) || 'N/A'}</td>
+                                    <td className="text-right">{sample.firmicutes_percent?.toFixed(1) || 'N/A'}%</td>
+                                    <td className="text-right">{sample.bacteroidetes_percent?.toFixed(1) || 'N/A'}%</td>
                                     <td>
                                         <span className={`badge ${sample.disease_condition === 'Healthy' ? 'badge-pass' :
                                             sample.disease_condition === 'IBD' ? 'bg-scientific-fail text-white' :
