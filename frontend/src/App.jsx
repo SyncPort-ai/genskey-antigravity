@@ -15,6 +15,8 @@ import PatientRecruitment from './pages/PatientRecruitment';
 import ProductionSchedule from './pages/ProductionSchedule';
 import FinancialDashboard from './pages/FinancialDashboard';
 import MLOps from './pages/MLOps';
+import SampleTracking from './pages/SampleTracking';
+import EquipmentManager from './pages/EquipmentManager';
 import * as Pages from './pages/PlaceholderPages';
 
 function App() {
@@ -97,8 +99,8 @@ function App() {
                         <Route path="/executive/reports" element={<Pages.BoardReports />} />
 
                         {/* Lab routes */}
-                        <Route path="/lab/samples" element={<Pages.SampleTracking />} />
-                        <Route path="/lab/equipment" element={<Pages.EquipmentManager />} />
+                        <Route path="/lab/samples" element={<SampleTracking />} />
+                        <Route path="/lab/equipment" element={<EquipmentManager />} />
                         <Route path="/lab/protocols" element={<Pages.ProtocolLibrary />} />
                         <Route path="/lab/safety" element={<Pages.LabSafety />} />
                     </Routes>
