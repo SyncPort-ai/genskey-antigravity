@@ -1,0 +1,39 @@
+# FastAPI Core
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+neo4j==5.16.0
+redis==5.0.1
+
+# Object Storage
+minio==7.2.3
+
+# AI/ML Core (Optional - for demo, these can be skipped)
+# Uncomment when ready to integrate real AI models
+# torch>=2.2.0
+# transformers==4.37.0
+# langchain==0.1.4
+# langgraph==0.0.20
+# langchain-openai==0.0.5
+
+# Bioinformatics
+biopython==1.83
+numpy==1.26.3
+pandas==2.2.0
+scikit-learn==1.4.0
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+
+# Utilities
+httpx==0.26.0
+celery==5.3.6
+aiofiles==23.2.1
