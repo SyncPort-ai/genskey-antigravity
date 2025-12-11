@@ -31,6 +31,7 @@ import TrialDesign from './pages/TrialDesign';
 import Pharmacovigilance from './pages/Pharmacovigilance';
 import KnowledgeGraph from './pages/KnowledgeGraph';
 import CandidateRanker from './pages/CandidateRanker';
+import LLMConfiguration from './pages/LLMConfiguration';
 import * as FinalPages from './pages/FinalBatchPages';
 
 function App() {
@@ -105,10 +106,11 @@ function App() {
                         <Route path="/data/analytics" element={<AnalyticsWorkbench />} />
                         <Route path="/data/knowledge-graph" element={<KnowledgeGraph />} />
 
-                        {/* AI Copilot extra routes */}
+                        {/* AI Copilot Routes */}
                         <Route path="/copilot/dashboard" element={<CopilotDashboard />} />
-                        <Route path="/copilot/workflows" element={<FinalPages.WorkflowBuilder />} />
-                        <Route path="/copilot/marketplace" element={<FinalPages.AgentMarketplace />} />
+                        <Route path="/copilot/chat" element={<CopilotChat />} />
+                        <Route path="/copilot/llm-config" element={<LLMConfiguration />} />
+                        <Route path="/copilot/*" element={<Navigate to="/copilot/dashboard" replace />} />
 
                         {/* Executive extra routes */}
                         <Route path="/executive/finance" element={<FinancialDashboard />} />

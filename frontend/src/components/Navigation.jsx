@@ -95,6 +95,7 @@ const Navigation = ({ onLanguageToggle, currentLang }) => {
             children: [
                 { label: t('nav.copilot_dashboard'), path: '/copilot/dashboard' },
                 { label: t('nav.copilot_chat'), path: '/copilot/chat' },
+                { label: 'LLM配置 LLM Config', path: '/copilot/llm-config' },
                 { label: t('nav.copilot_workflows'), path: '/copilot/workflows' },
                 { label: t('nav.copilot_marketplace'), path: '/copilot/marketplace' }
             ]

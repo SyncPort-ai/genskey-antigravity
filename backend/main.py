@@ -17,6 +17,7 @@ from services.discovery_service import router as discovery_router
 from services.design_service import router as design_router
 from services.twin_service import router as twin_router
 from services.trial_service import router as trial_router
+from routes.llm_config import router as llm_config_router
 
 
 @asynccontextmanager
@@ -123,6 +124,11 @@ app.include_router(
     trial_router,
     prefix=f"{settings.API_PREFIX}/trial",
     tags=["GenskeyTrial - Clinical & Regulatory"]
+)
+
+app.include_router(
+    llm_config_router,
+    tags=["AI Copilot - LLM Configuration"]
 )
 
 if __name__ == "__main__":
