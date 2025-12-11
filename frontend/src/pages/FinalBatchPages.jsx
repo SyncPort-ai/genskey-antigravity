@@ -13,7 +13,7 @@ export function AnimalStudies() {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 bg-brand-50 rounded">
                         <div className="font-semibold mb-2">DSS诱导的IBD模型</div>
-                        <div className="text-sm text-gray-600">菌株: GNS0042 | 小鼠数: 60 | 疗效: 显著改善 (p<0.01)</div>
+                        <div className="text-sm text-gray-600">菌株: GNS0042 | 小鼠数: 60 | 疗效: 显著改善 (p&lt;0.01)</div>
                     </div>
                     <div className="p-4 bg-brand-50 rounded">
                         <div className="font-semibold mb-2">db/db糖尿病模型</div>
