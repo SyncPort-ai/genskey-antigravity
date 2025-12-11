@@ -30,7 +30,7 @@ export default function AnalyticsWorkbench() {
     // Alpha diversity chart
     const alphaDiversityChart = {
         title: { text: 'Shannon多样性指数分布', textStyle: { fontSize: 16, fontWeight: 'bold' } },
-        tooltip: { trigger: 'item' },
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
         xAxis: {
             type: 'category',
             data: ['Healthy', 'IBD', 'CDI', 'T2D']
@@ -38,13 +38,8 @@ export default function AnalyticsWorkbench() {
         yAxis: { type: 'value', name: 'Shannon Index' },
         series: [{
             name: 'Shannon',
-            type: 'boxplot',
-            data: [
-                [2.8, 3.2, 3.5, 3.8, 4.2],  // Healthy
-                [1.5, 2.1, 2.4, 2.8, 3.2],  // IBD
-                [1.2, 1.8, 2.2, 2.5, 2.9],  // CDI
-                [2.0, 2.4, 2.7, 3.0, 3.4]   // T2D
-            ],
+            type: 'bar',
+            data: [3.5, 2.4, 2.2, 2.7],  // Average values
             itemStyle: { color: '#0ea5e9' }
         }]
     };
