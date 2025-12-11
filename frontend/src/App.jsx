@@ -11,6 +11,10 @@ import DataLake from './pages/DataLake';
 import CopilotChat from './pages/CopilotChat';
 import ExecutivePortfolio from './pages/ExecutivePortfolio';
 import QualityControl from './pages/QualityControl';
+import PatientRecruitment from './pages/PatientRecruitment';
+import ProductionSchedule from './pages/ProductionSchedule';
+import FinancialDashboard from './pages/FinancialDashboard';
+import MLOps from './pages/MLOps';
 import * as Pages from './pages/PlaceholderPages';
 
 function App() {
@@ -57,7 +61,7 @@ function App() {
 
                         {/* Manufacturing/QC Routes */}
                         <Route path="/twin/qc" element={<QualityControl />} />
-                        <Route path="/twin/schedule" element={<Pages.ProductionSchedule />} />
+                        <Route path="/twin/schedule" element={<ProductionSchedule />} />
                         <Route path="/twin/supply" element={<Pages.SupplyChain />} />
                         <Route path="/twin/tech-transfer" element={<Pages.TechTransfer />} />
 
@@ -73,12 +77,12 @@ function App() {
 
                         {/* Clinical extra routes */}
                         <Route path="/trial/design" element={<Pages.TrialDesign />} />
-                        <Route path="/trial/recruitment" element={<Pages.PatientRecruitment />} />
+                        <Route path="/trial/recruitment" element={<PatientRecruitment />} />
                         <Route path="/trial/regulatory" element={<Pages.RegulatoryAffairs />} />
                         <Route path="/trial/pharmacovigilance" element={<Pages.Pharmacovigilance />} />
 
                         {/* Data Science extra routes */}
-                        <Route path="/data/mlops" element={<Pages.MLOps />} />
+                        <Route path="/data/mlops" element={<MLOps />} />
                         <Route path="/data/analytics" element={<Pages.AnalyticsWorkbench />} />
                         <Route path="/data/knowledge-graph" element={<Pages.KnowledgeGraph />} />
 
@@ -88,7 +92,7 @@ function App() {
                         <Route path="/copilot/marketplace" element={<Pages.AgentMarketplace />} />
 
                         {/* Executive extra routes */}
-                        <Route path="/executive/finance" element={<Pages.FinancialDashboard />} />
+                        <Route path="/executive/finance" element={<FinancialDashboard />} />
                         <Route path="/executive/team" element={<Pages.TeamPerformance />} />
                         <Route path="/executive/reports" element={<Pages.BoardReports />} />
 
