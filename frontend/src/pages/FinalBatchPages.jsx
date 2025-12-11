@@ -1,6 +1,6 @@
 // Batch 5 - Remaining simplified pages with Chinese UI + English technical terms
 
-import { FlaskRound, Microscope, TrendingUp, Package, Grid, Shield } from 'lucide-react';
+import { FlaskConical, Microscope, TrendingUp, Package, Grid, Shield } from 'lucide-react';
 
 export function AnimalStudies() {
     return (

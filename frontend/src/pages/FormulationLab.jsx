@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Beaker, TrendingUp, AlertCircle, CheckCircle2, Flask } from 'lucide-react';
+import { Beaker, TrendingUp, AlertCircle, CheckCircle2, FlaskConical } from 'lucide-react';
 import ReactECharts from 'echarts-for-react';
 
 export default function FormulationLab() {
@@ -130,7 +130,7 @@ export default function FormulationLab() {
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-dense-4 mb-dense-6">
                 <div className="card bg-gradient-to-br from-brand-500 to-brand-700 text-white">
-                    <Flask size={32} className="mb-2 opacity-80" />
+                    <FlaskConical size={32} className="mb-2 opacity-80" />
                     <div className="text-2xl font-bold">{formulations.length}</div>
                     <div className="text-sm opacity-90">制剂配方</div>
                 </div>
@@ -194,7 +194,7 @@ export default function FormulationLab() {
                                     <td className="text-right">{form.stabilityDays}</td>
                                     <td className="text-right">
                                         <span className={`font-semibold ${form.viabilityRetention >= 0.9 ? 'text-scientific-pass' :
-                                                form.viabilityRetention >= 0.8 ? 'text-scientific-warning' : 'text-scientific-fail'
+                                            form.viabilityRetention >= 0.8 ? 'text-scientific-warning' : 'text-scientific-fail'
                                             }`}>
                                             {(form.viabilityRetention * 100).toFixed(0)}%
                                         </span>
