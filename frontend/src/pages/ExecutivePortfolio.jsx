@@ -31,7 +31,7 @@ export default function ExecutivePortfolio() {
             milestones: { completed: 11, total: 13 },
             risk: 'low',
             status: 'on-track',
-            next Milestone: 'Phase I完成报告',
+            nextMilestone: 'Phase I完成报告',
             dueDate: '2025-01-20'
         },
         {

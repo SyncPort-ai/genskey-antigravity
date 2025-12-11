@@ -11,6 +11,7 @@ import DataLake from './pages/DataLake';
 import CopilotChat from './pages/CopilotChat';
 import ExecutivePortfolio from './pages/ExecutivePortfolio';
 import QualityControl from './pages/QualityControl';
+import * as Pages from './pages/PlaceholderPages';
 
 function App() {
     const { i18n } = useTranslation();
@@ -56,6 +57,46 @@ function App() {
 
                         {/* Manufacturing/QC Routes */}
                         <Route path="/twin/qc" element={<QualityControl />} />
+                        <Route path="/twin/schedule" element={<Pages.ProductionSchedule />} />
+                        <Route path="/twin/supply" element={<Pages.SupplyChain />} />
+                        <Route path="/twin/tech-transfer" element={<Pages.TechTransfer />} />
+
+                        {/* Discovery extra routes */}
+                        <Route path="/discovery/targets" element={<Pages.TargetValidation />} />
+                        <Route path="/discovery/hit-to-lead" element={<Pages.HitToLead />} />
+
+                        {/* R&D extra routes */}
+                        <Route path="/design/formulation" element={<Pages.FormulationLab />} />
+                        <Route path="/design/in-vitro" element={<Pages.InVitroTesting />} />
+                        <Route path="/design/animal" element={<Pages.AnimalStudies />} />
+                        <Route path="/design/ai-lab" element={<Pages.AILab />} />
+
+                        {/* Clinical extra routes */}
+                        <Route path="/trial/design" element={<Pages.TrialDesign />} />
+                        <Route path="/trial/recruitment" element={<Pages.PatientRecruitment />} />
+                        <Route path="/trial/regulatory" element={<Pages.RegulatoryAffairs />} />
+                        <Route path="/trial/pharmacovigilance" element={<Pages.Pharmacovigilance />} />
+
+                        {/* Data Science extra routes */}
+                        <Route path="/data/mlops" element={<Pages.MLOps />} />
+                        <Route path="/data/analytics" element={<Pages.AnalyticsWorkbench />} />
+                        <Route path="/data/knowledge-graph" element={<Pages.KnowledgeGraph />} />
+
+                        {/* AI Copilot extra routes */}
+                        <Route path="/copilot/dashboard" element={<Pages.CopilotDashboard />} />
+                        <Route path="/copilot/workflows" element={<Pages.WorkflowBuilder />} />
+                        <Route path="/copilot/marketplace" element={<Pages.AgentMarketplace />} />
+
+                        {/* Executive extra routes */}
+                        <Route path="/executive/finance" element={<Pages.FinancialDashboard />} />
+                        <Route path="/executive/team" element={<Pages.TeamPerformance />} />
+                        <Route path="/executive/reports" element={<Pages.BoardReports />} />
+
+                        {/* Lab routes */}
+                        <Route path="/lab/samples" element={<Pages.SampleTracking />} />
+                        <Route path="/lab/equipment" element={<Pages.EquipmentManager />} />
+                        <Route path="/lab/protocols" element={<Pages.ProtocolLibrary />} />
+                        <Route path="/lab/safety" element={<Pages.LabSafety />} />
                     </Routes>
                 </div>
             </div>
