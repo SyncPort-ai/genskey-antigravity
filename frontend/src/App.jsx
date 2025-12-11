@@ -25,6 +25,12 @@ import FormulationLab from './pages/FormulationLab';
 import SupplyChain from './pages/SupplyChain';
 import TeamPerformance from './pages/TeamPerformance';
 import ProtocolLibrary from './pages/ProtocolLibrary';
+import HitToLead from './pages/HitToLead';
+import InVitroTesting from './pages/InVitroTesting';
+import TrialDesign from './pages/TrialDesign';
+import Pharmacovigilance from './pages/Pharmacovigilance';
+import KnowledgeGraph from './pages/KnowledgeGraph';
+import * as FinalPages from './pages/FinalBatchPages';
 import * as Pages from './pages/PlaceholderPages';
 
 function App() {
@@ -73,44 +79,44 @@ function App() {
                         <Route path="/twin/qc" element={<QualityControl />} />
                         <Route path="/twin/schedule" element={<ProductionSchedule />} />
                         <Route path="/twin/supply" element={<SupplyChain />} />
-                        <Route path="/twin/tech-transfer" element={<Pages.TechTransfer />} />
+                        <Route path="/twin/tech-transfer" element={<FinalPages.TechTransfer />} />
 
                         {/* Discovery extra routes */}
                         <Route path="/discovery/targets" element={<TargetValidation />} />
-                        <Route path="/discovery/hit-to-lead" element={<Pages.HitToLead />} />
+                        <Route path="/discovery/hit-to-lead" element={<HitToLead />} />
 
                         {/* R&D extra routes */}
                         <Route path="/design/formulation" element={<FormulationLab />} />
-                        <Route path="/design/in-vitro" element={<Pages.InVitroTesting />} />
-                        <Route path="/design/animal" element={<Pages.AnimalStudies />} />
-                        <Route path="/design/ai-lab" element={<Pages.AILab />} />
+                        <Route path="/design/in-vitro" element={<InVitroTesting />} />
+                        <Route path="/design/animal" element={<FinalPages.AnimalStudies />} />
+                        <Route path="/design/ai-lab" element={<FinalPages.AILab />} />
 
                         {/* Clinical extra routes */}
-                        <Route path="/trial/design" element={<Pages.TrialDesign />} />
+                        <Route path="/trial/design" element={<TrialDesign />} />
                         <Route path="/trial/recruitment" element={<PatientRecruitment />} />
                         <Route path="/trial/regulatory" element={<RegulatoryAffairs />} />
-                        <Route path="/trial/pharmacovigilance" element={<Pages.Pharmacovigilance />} />
+                        <Route path="/trial/pharmacovigilance" element={<Pharmacovigilance />} />
 
                         {/* Data Science extra routes */}
                         <Route path="/data/mlops" element={<MLOps />} />
                         <Route path="/data/analytics" element={<AnalyticsWorkbench />} />
-                        <Route path="/data/knowledge-graph" element={<Pages.KnowledgeGraph />} />
+                        <Route path="/data/knowledge-graph" element={<KnowledgeGraph />} />
 
                         {/* AI Copilot extra routes */}
                         <Route path="/copilot/dashboard" element={<CopilotDashboard />} />
-                        <Route path="/copilot/workflows" element={<Pages.WorkflowBuilder />} />
-                        <Route path="/copilot/marketplace" element={<Pages.AgentMarketplace />} />
+                        <Route path="/copilot/workflows" element={<FinalPages.WorkflowBuilder />} />
+                        <Route path="/copilot/marketplace" element={<FinalPages.AgentMarketplace />} />
 
                         {/* Executive extra routes */}
                         <Route path="/executive/finance" element={<FinancialDashboard />} />
                         <Route path="/executive/team" element={<TeamPerformance />} />
-                        <Route path="/executive/reports" element={<Pages.BoardReports />} />
+                        <Route path="/executive/reports" element={<FinalPages.BoardReports />} />
 
                         {/* Lab routes */}
                         <Route path="/lab/samples" element={<SampleTracking />} />
                         <Route path="/lab/equipment" element={<EquipmentManager />} />
                         <Route path="/lab/protocols" element={<ProtocolLibrary />} />
-                        <Route path="/lab/safety" element={<Pages.LabSafety />} />
+                        <Route path="/lab/safety" element={<FinalPages.LabSafety />} />
                     </Routes>
                 </div>
             </div>
