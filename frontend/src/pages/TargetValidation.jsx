@@ -180,7 +180,7 @@ export default function TargetValidation() {
                                     <td className="text-right">{disease.samples}</td>
                                     <td className="text-right">
                                         <span className={`font-semibold ${disease.confidence >= 0.85 ? 'text-scientific-pass' :
-                                                disease.confidence >= 0.75 ? 'text-scientific-warning' : 'text-scientific-fail'
+                                            disease.confidence >= 0.75 ? 'text-scientific-warning' : 'text-scientific-fail'
                                             }`}>
                                             {(disease.confidence * 100).toFixed(0)}%
                                         </span>
@@ -206,7 +206,7 @@ export default function TargetValidation() {
                         </div>
                         <div>
                             <span className="text-gray-600">多重校正:</span>
-                            <span className="ml-2 font-semibold">FDR (q<0.05)</span>
+                            <span className="ml-2 font-semibold">FDR (q&lt;0.05)</span>
                         </div>
                         <div>
                             <span className="text-gray-600">效应量:</span>
