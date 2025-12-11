@@ -1,0 +1,309 @@
+{
+    "llm_providers": [
+        {
+            "id": "openai-gpt4",
+            "name": "OpenAI GPT-4 Turbo",
+            "provider": "OpenAI",
+            "model": "gpt-4-turbo-preview",
+            "api_endpoint": "https://api.openai.com/v1/chat/completions",
+            "capabilities": {
+                "max_context": 128000,
+                "supports_function_calling": true,
+                "supports_vision": true,
+                "supports_streaming": true,
+                "reasoning_quality": "excellent",
+                "speed": "medium"
+            },
+            "pricing": {
+                "input_per_1k_tokens": 0.01,
+                "output_per_1k_tokens": 0.03,
+                "estimated_monthly_cost": 1500
+            },
+            "use_cases": [
+                "complex_reasoning",
+                "hypothesis_generation",
+                "regulatory_documents",
+                "scientific_writing"
+            ],
+            "requirements": {
+                "api_key_env": "OPENAI_API_KEY",
+                "organization_id": "OPENAI_ORG_ID"
+            },
+            "status": "active",
+            "recommended_for": [
+                "production",
+                "high_accuracy"
+            ]
+        },
+        {
+            "id": "openai-gpt35",
+            "name": "OpenAI GPT-3.5 Turbo",
+            "provider": "OpenAI",
+            "model": "gpt-3.5-turbo",
+            "api_endpoint": "https://api.openai.com/v1/chat/completions",
+            "capabilities": {
+                "max_context": 16385,
+                "supports_function_calling": true,
+                "supports_vision": false,
+                "supports_streaming": true,
+                "reasoning_quality": "good",
+                "speed": "fast"
+            },
+            "pricing": {
+                "input_per_1k_tokens": 0.0015,
+                "output_per_1k_tokens": 0.002,
+                "estimated_monthly_cost": 300
+            },
+            "use_cases": [
+                "rag_retrieval",
+                "simple_queries",
+                "data_extraction",
+                "formatting"
+            ],
+            "requirements": {
+                "api_key_env": "OPENAI_API_KEY"
+            },
+            "status": "active",
+            "recommended_for": [
+                "cost_optimization",
+                "high_volume"
+            ]
+        },
+        {
+            "id": "anthropic-claude3-opus",
+            "name": "Anthropic Claude 3 Opus",
+            "provider": "Anthropic",
+            "model": "claude-3-opus-20240229",
+            "api_endpoint": "https://api.anthropic.com/v1/messages",
+            "capabilities": {
+                "max_context": 200000,
+                "supports_function_calling": true,
+                "supports_vision": true,
+                "supports_streaming": true,
+                "reasoning_quality": "excellent",
+                "speed": "medium"
+            },
+            "pricing": {
+                "input_per_1k_tokens": 0.015,
+                "output_per_1k_tokens": 0.075,
+                "estimated_monthly_cost": 2000
+            },
+            "use_cases": [
+                "long_document_analysis",
+                "complex_reasoning",
+                "scientific_papers",
+                "regulatory_review"
+            ],
+            "requirements": {
+                "api_key_env": "ANTHROPIC_API_KEY"
+            },
+            "status": "active",
+            "recommended_for": [
+                "long_context",
+                "document_analysis"
+            ]
+        },
+        {
+            "id": "anthropic-claude3-sonnet",
+            "name": "Anthropic Claude 3 Sonnet",
+            "provider": "Anthropic",
+            "model": "claude-3-sonnet-20240229",
+            "api_endpoint": "https://api.anthropic.com/v1/messages",
+            "capabilities": {
+                "max_context": 200000,
+                "supports_function_calling": true,
+                "supports_vision": true,
+                "supports_streaming": true,
+                "reasoning_quality": "very_good",
+                "speed": "fast"
+            },
+            "pricing": {
+                "input_per_1k_tokens": 0.003,
+                "output_per_1k_tokens": 0.015,
+                "estimated_monthly_cost": 600
+            },
+            "use_cases": [
+                "balanced_performance",
+                "document_generation",
+                "literature_analysis",
+                "general_queries"
+            ],
+            "requirements": {
+                "api_key_env": "ANTHROPIC_API_KEY"
+            },
+            "status": "active",
+            "recommended_for": [
+                "balanced",
+                "cost_performance"
+            ]
+        },
+        {
+            "id": "llama3-70b",
+            "name": "Meta LLaMA 3 70B (Self-hosted)",
+            "provider": "Meta",
+            "model": "meta-llama/Meta-Llama-3-70B-Instruct",
+            "api_endpoint": "http://localhost:8000/v1/chat/completions",
+            "capabilities": {
+                "max_context": 8192,
+                "supports_function_calling": true,
+                "supports_vision": false,
+                "supports_streaming": true,
+                "reasoning_quality": "good",
+                "speed": "fast"
+            },
+            "pricing": {
+                "input_per_1k_tokens": 0,
+                "output_per_1k_tokens": 0,
+                "estimated_monthly_cost": 500,
+                "cost_type": "infrastructure_only",
+                "infrastructure_notes": "Requires 2x A100 GPUs (~$500/month cloud or on-prem)"
+            },
+            "use_cases": [
+                "data_privacy_critical",
+                "high_volume",
+                "rag_retrieval",
+                "embedding_generation"
+            ],
+            "requirements": {
+                "deployment": "vllm",
+                "gpu_memory": "140GB",
+                "quantization": "optional_8bit"
+            },
+            "status": "optional",
+            "recommended_for": [
+                "data_privacy",
+                "unlimited_usage"
+            ]
+        },
+        {
+            "id": "llama3-8b",
+            "name": "Meta LLaMA 3 8B (Self-hosted)",
+            "provider": "Meta",
+            "model": "meta-llama/Meta-Llama-3-8B-Instruct",
+            "api_endpoint": "http://localhost:8001/v1/chat/completions",
+            "capabilities": {
+                "max_context": 8192,
+                "supports_function_calling": true,
+                "supports_vision": false,
+                "supports_streaming": true,
+                "reasoning_quality": "moderate",
+                "speed": "very_fast"
+            },
+            "pricing": {
+                "input_per_1k_tokens": 0,
+                "output_per_1k_tokens": 0,
+                "estimated_monthly_cost": 150,
+                "cost_type": "infrastructure_only",
+                "infrastructure_notes": "Requires 1x A100 GPU (~$150/month cloud)"
+            },
+            "use_cases": [
+                "simple_queries",
+                "classification",
+                "entity_extraction",
+                "embedding_generation"
+            ],
+            "requirements": {
+                "deployment": "vllm",
+                "gpu_memory": "24GB",
+                "quantization": "optional_4bit"
+            },
+            "status": "optional",
+            "recommended_for": [
+                "budget",
+                "simple_tasks"
+            ]
+        }
+    ],
+    "task_routing": {
+        "literature_search": {
+            "primary": "openai-gpt4",
+            "fallback": "anthropic-claude3-sonnet",
+            "budget_option": "llama3-70b"
+        },
+        "experimental_design": {
+            "primary": "anthropic-claude3-opus",
+            "fallback": "openai-gpt4",
+            "budget_option": "openai-gpt35"
+        },
+        "regulatory_documents": {
+            "primary": "anthropic-claude3-opus",
+            "fallback": "openai-gpt4",
+            "budget_option": "anthropic-claude3-sonnet"
+        },
+        "hypothesis_generation": {
+            "primary": "openai-gpt4",
+            "fallback": "anthropic-claude3-opus",
+            "budget_option": "llama3-70b"
+        },
+        "data_analysis": {
+            "primary": "openai-gpt4",
+            "fallback": "anthropic-claude3-sonnet",
+            "budget_option": "openai-gpt35"
+        },
+        "rag_retrieval": {
+            "primary": "openai-gpt35",
+            "fallback": "llama3-8b",
+            "budget_option": "llama3-8b"
+        },
+        "simple_queries": {
+            "primary": "openai-gpt35",
+            "fallback": "llama3-8b",
+            "budget_option": "llama3-8b"
+        }
+    },
+    "embedding_models": [
+        {
+            "id": "openai-embed-large",
+            "name": "OpenAI text-embedding-3-large",
+            "provider": "OpenAI",
+            "dimensions": 3072,
+            "pricing_per_1m_tokens": 0.13,
+            "recommended_for": "general_purpose"
+        },
+        {
+            "id": "pubmedbert",
+            "name": "PubMedBERT (Self-hosted)",
+            "provider": "Microsoft",
+            "dimensions": 768,
+            "pricing_per_1m_tokens": 0,
+            "recommended_for": "biomedical_text"
+        }
+    ],
+    "user_preferences": {
+        "default_profile": "balanced",
+        "profiles": {
+            "cost_optimized": {
+                "description": "最小化成本，使用开源模型和GPT-3.5",
+                "primary_models": [
+                    "llama3-70b",
+                    "openai-gpt35"
+                ],
+                "estimated_monthly_cost": 450
+            },
+            "balanced": {
+                "description": "平衡性能和成本，混合使用",
+                "primary_models": [
+                    "anthropic-claude3-sonnet",
+                    "openai-gpt4"
+                ],
+                "estimated_monthly_cost": 1200
+            },
+            "performance": {
+                "description": "最佳性能，使用顶级模型",
+                "primary_models": [
+                    "openai-gpt4",
+                    "anthropic-claude3-opus"
+                ],
+                "estimated_monthly_cost": 2500
+            },
+            "privacy_first": {
+                "description": "数据隐私优先，全部自托管",
+                "primary_models": [
+                    "llama3-70b",
+                    "llama3-8b"
+                ],
+                "estimated_monthly_cost": 650
+            }
+        }
+    }
+}
