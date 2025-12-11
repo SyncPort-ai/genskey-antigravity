@@ -31,7 +31,6 @@ import TrialDesign from './pages/TrialDesign';
 import Pharmacovigilance from './pages/Pharmacovigilance';
 import KnowledgeGraph from './pages/KnowledgeGraph';
 import * as FinalPages from './pages/FinalBatchPages';
-import * as Pages from './pages/PlaceholderPages';
 
 function App() {
     const { i18n } = useTranslation();
