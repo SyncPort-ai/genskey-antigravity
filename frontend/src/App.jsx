@@ -21,6 +21,10 @@ import TargetValidation from './pages/TargetValidation';
 import RegulatoryAffairs from './pages/RegulatoryAffairs';
 import AnalyticsWorkbench from './pages/AnalyticsWorkbench';
 import CopilotDashboard from './pages/CopilotDashboard';
+import FormulationLab from './pages/FormulationLab';
+import SupplyChain from './pages/SupplyChain';
+import TeamPerformance from './pages/TeamPerformance';
+import ProtocolLibrary from './pages/ProtocolLibrary';
 import * as Pages from './pages/PlaceholderPages';
 
 function App() {
@@ -68,7 +72,7 @@ function App() {
                         {/* Manufacturing/QC Routes */}
                         <Route path="/twin/qc" element={<QualityControl />} />
                         <Route path="/twin/schedule" element={<ProductionSchedule />} />
-                        <Route path="/twin/supply" element={<Pages.SupplyChain />} />
+                        <Route path="/twin/supply" element={<SupplyChain />} />
                         <Route path="/twin/tech-transfer" element={<Pages.TechTransfer />} />
 
                         {/* Discovery extra routes */}
@@ -76,7 +80,7 @@ function App() {
                         <Route path="/discovery/hit-to-lead" element={<Pages.HitToLead />} />
 
                         {/* R&D extra routes */}
-                        <Route path="/design/formulation" element={<Pages.FormulationLab />} />
+                        <Route path="/design/formulation" element={<FormulationLab />} />
                         <Route path="/design/in-vitro" element={<Pages.InVitroTesting />} />
                         <Route path="/design/animal" element={<Pages.AnimalStudies />} />
                         <Route path="/design/ai-lab" element={<Pages.AILab />} />
@@ -99,13 +103,13 @@ function App() {
 
                         {/* Executive extra routes */}
                         <Route path="/executive/finance" element={<FinancialDashboard />} />
-                        <Route path="/executive/team" element={<Pages.TeamPerformance />} />
+                        <Route path="/executive/team" element={<TeamPerformance />} />
                         <Route path="/executive/reports" element={<Pages.BoardReports />} />
 
                         {/* Lab routes */}
                         <Route path="/lab/samples" element={<SampleTracking />} />
                         <Route path="/lab/equipment" element={<EquipmentManager />} />
-                        <Route path="/lab/protocols" element={<Pages.ProtocolLibrary />} />
+                        <Route path="/lab/protocols" element={<ProtocolLibrary />} />
                         <Route path="/lab/safety" element={<Pages.LabSafety />} />
                     </Routes>
                 </div>
