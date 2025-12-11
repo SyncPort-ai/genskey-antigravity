@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BarChart3, PieChart, LineChart, Download, Play } from 'lucide-react';
+import { BarChart3, Download, Play } from 'lucide-react';
 import ReactECharts from 'echarts-for-react';
 import microbiomeData from '../data/microbiome_profiles.json';
 import clinicalData from '../data/clinical_patients.json';
@@ -240,8 +240,8 @@ export default function AnalyticsWorkbench() {
                                     <td className="text-right">{sample.bacteroidetes_percent.toFixed(1)}%</td>
                                     <td>
                                         <span className={`badge ${sample.disease_condition === 'Healthy' ? 'badge-pass' :
-                                                sample.disease_condition === 'IBD' ? 'bg-scientific-fail text-white' :
-                                                    'bg-scientific-warning text-white'
+                                            sample.disease_condition === 'IBD' ? 'bg-scientific-fail text-white' :
+                                                'bg-scientific-warning text-white'
                                             }`}>
                                             {sample.disease_condition}
                                         </span>
