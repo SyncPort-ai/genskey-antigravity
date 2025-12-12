@@ -22,7 +22,7 @@ MODE=${1:-docker}
 case $MODE in
   docker)
     echo "🐳 Starting with Docker Compose..."
-    docker-compose up -d
+    docker compose up -d
     echo ""
     echo "✅ Services starting..."
     echo ""
@@ -34,7 +34,7 @@ case $MODE in
     echo "  MinIO:        http://localhost:9001"
     echo ""
     echo "📝 View logs:"
-    echo "  docker-compose logs -f"
+    echo "  docker compose logs -f"
     ;;
     
   dev)
@@ -66,7 +66,7 @@ case $MODE in
     
   stop)
     echo "🛑 Stopping Genskey Platform..."
-    docker-compose down
+    docker compose down
     echo "✅ Stopped"
     ;;
     

@@ -9,15 +9,16 @@ from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import time
 
-from config import settings
-from database import init_db
+from backend.config import settings
+from backend.database import init_db
 
 # Import routers
-from services.discovery_service import router as discovery_router
-from services.design_service import router as design_router
-from services.twin_service import router as twin_router
-from services.trial_service import router as trial_router
-from routes.llm_config import router as llm_config_router
+from backend.services.discovery_service import router as discovery_router
+from backend.services.design_service import router as design_router
+from backend.services.twin_service import router as twin_router
+from backend.services.trial_service import router as trial_router
+from backend.routes.llm_config import router as llm_config_router
+from backend.routes.literature_service import router as literature_router
 
 
 @asynccontextmanager
@@ -128,7 +129,14 @@ app.include_router(
 
 app.include_router(
     llm_config_router,
+    prefix="/api/llm-config",
     tags=["AI Copilot - LLM Configuration"]
+)
+
+app.include_router(
+    literature_router,
+    prefix=f"{settings.API_PREFIX}/literature",
+    tags=["GenskeyLit - Literature RAG"]
 )
 
 if __name__ == "__main__":

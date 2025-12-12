@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 
-from database import get_db
+from backend.database import get_db
 
 router = APIRouter()
 

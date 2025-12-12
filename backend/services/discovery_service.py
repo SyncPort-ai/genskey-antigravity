@@ -9,8 +9,8 @@ from typing import List, Dict, Any
 from pydantic import BaseModel
 import json
 
-from database import get_db
-from database.models import Strain, Sample
+from backend.database import get_db
+from backend.database.models import Strain, Sample
 
 router = APIRouter()
 

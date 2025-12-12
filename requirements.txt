@@ -14,13 +14,13 @@ redis==5.0.1
 # Object Storage
 minio==7.2.3
 
-# AI/ML Core (Optional - for demo, these can be skipped)
-# Uncomment when ready to integrate real AI models
-# torch>=2.2.0
-# transformers==4.37.0
-# langchain==0.1.4
-# langgraph==0.0.20
-# langchain-openai==0.0.5
+# AI/ML Core
+torch>=2.2.0
+transformers==4.37.0
+langchain==0.1.4
+langgraph==0.0.20
+langchain-openai==0.0.5
+pinecone-client==3.0.0
 
 # Bioinformatics
 biopython==1.83

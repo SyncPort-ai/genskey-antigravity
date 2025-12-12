@@ -53,6 +53,12 @@ class Settings(BaseSettings):
     # AI Models
     OPENAI_API_KEY: Optional[str] = None
     MODEL_CACHE_DIR: str = "./models"
+
+    # RAG System
+    PINECONE_API_KEY: Optional[str] = None
+    PINECONE_ENVIRONMENT: Optional[str] = None
+    PINECONE_INDEX_NAME: str = "genskey-rag-index"
+    PUBMED_EMAIL: Optional[str] = None
     
     # File Upload
     MAX_UPLOAD_SIZE: int = 10 * 1024 * 1024 * 1024  # 10GB
