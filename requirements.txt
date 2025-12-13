@@ -21,6 +21,8 @@ langchain==0.1.4
 langgraph==0.0.20
 langchain-openai==0.0.5
 pinecone-client==3.0.0
+sentence-transformers
+
 
 # Bioinformatics
 biopython==1.83

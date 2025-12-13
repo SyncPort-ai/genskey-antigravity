@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Sparkles, FileText, Database, TrendingUp, AlertCircle } from 'lucide-react';
+import { Send, Bot, User, Sparkles, FileText, Database, TrendingUp, AlertCircle, ChevronDown } from 'lucide-react';
 
 export default function CopilotChat() {
     const [messages, setMessages] = useState([
@@ -18,6 +18,7 @@ export default function CopilotChat() {
         { name: 'Design Agent', status: 'active', icon: Sparkles },
         { name: 'Analysis Agent', status: 'idle', icon: TrendingUp }
     ]);
+    const [selectedTask, setSelectedTask] = useState('literature_search');
 
     const messagesEndRef = useRef(null);
 
@@ -42,41 +43,70 @@ export default function CopilotChat() {
         setInput('');
         setIsTyping(true);
 
-        // Simulate AI response
-        setTimeout(() => {
-            const responses = [
-                {
-                    agent: 'Literature Agent',
-                    content: `已在PubMed检索到15篇相关文献。关键发现：\n\n1. Faecalibacterium prausnitzii 与IBD缓解率显著相关 (p<0.001)\n2. 最新meta分析显示益生菌联合疗法优于单一菌株 (RR=1.45)\n3. 中国人群的肠道菌群组成与欧美人群存在显著差异\n\n完整文献列表已保存到数据湖。`
+        try {
+            const response = await fetch('http://localhost:8000/api/agent/run', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                {
-                    agent: 'Safety Agent',
-                    content: '安全性分析完成：\n\n✅ 未检测到AMR基因\n✅ 未检测到毒力因子\n✅ GRAS认证状态：合格\n✅ 耐酸耐胆汁测试：通过\n\n建议：可以进入临床前研究阶段。'
-                },
-                {
-                    agent: 'Design Agent',
-                    content: '基于GNN模型优化的菌群组合方案：\n\n**推荐配方 #1:**\n- F. prausnitzii (40%)\n- B. longum (30%)\n- A. muciniphila (20%)\n- R. intestinalis (10%)\n\n预测协同指数：0.87 (高协同)\n代谢互补性：0.92\nIBD改善概率：78%\n\n是否需要我生成详细的制剂方案？'
-                }
-            ];
+                body: JSON.stringify({
+                    task: selectedTask,
+                    prompt: input,
+                    data: selectedTask === 'data_analysis' ? { 
+                        batch_records: [
+                            {"batch_id": "B001", "fermentation_temp_c": 37.0, "final_viability_percent": 95.2},
+                            {"batch_id": "B002", "fermentation_temp_c": 37.1, "final_viability_percent": 94.8},
+                            {"batch_id": "B003", "fermentation_temp_c": 37.5, "final_viability_percent": 88.1},
+                            {"batch_id": "B004", "fermentation_temp_c": 37.6, "final_viability_percent": 87.5},
+                            {"batch_id": "B005", "fermentation_temp_c": 37.0, "final_viability_percent": 96.1}
+                        ],
+                        notes: "Mock data for demonstration of data_analysis agent."
+                    } : null,
+                }),
+            });
 
-            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.detail || 'An error occurred');
+            }
 
-            setMessages(prev => [...prev, {
+            const data = await response.json();
+            
+            const assistantMessage = {
                 role: 'assistant',
-                content: randomResponse.content,
+                content: data.response,
                 timestamp: new Date(),
-                agent: randomResponse.agent
-            }]);
+                agent: data.agent
+            };
 
+            setMessages(prev => [...prev, assistantMessage]);
+
+        } catch (error) {
+            const errorMessage = {
+                role: 'assistant',
+                content: `Error: ${error.message}`,
+                timestamp: new Date(),
+                agent: 'Error'
+            };
+            setMessages(prev => [...prev, errorMessage]);
+        } finally {
             setIsTyping(false);
-        }, 2000);
+        }
     };
 
     const quickActions = [
-        { icon: FileText, label: '文献检索', query: '检索IBD相关的益生菌治疗文献' },
-        { icon: AlertCircle, label: '安全评估', query: '评估GNS0042菌株的安全性' },
-        { icon: Sparkles, label: '设计方案', query: '为IBD患者设计最优菌群配方' },
-        { icon: Database, label: '数据分析', query: '分析临床试验GNS-IBD-001的中期结果' }
+        { icon: FileText, label: '文献检索', query: '检索IBD相关的益生菌治疗文献', task: 'literature_search' },
+        { icon: AlertCircle, label: '安全评估', query: '评估GNS0042菌株的安全性', task: 'safety_assessment' },
+        { icon: Sparkles, label: '设计方案', query: '为IBD患者设计最优菌群配方', task: 'experimental_design' },
+        { icon: Database, label: '数据分析', query: '分析临床试验GNS-IBD-001的中期结果', task: 'data_analysis' }
+    ];
+
+    const tasks = [
+        { id: 'literature_search', name: '文献检索' },
+        { id: 'experimental_design', name: '方案设计' },
+        { id: 'regulatory_documents', name: '法规文件' },
+        { id: 'rag_retrieval', name: 'RAG检索' },
+        { id: 'hypothesis_generation', name: '假说生成' }
     ];
 
     return (
@@ -105,7 +135,10 @@ export default function CopilotChat() {
                         {quickActions.map((action, index) => (
                             <button
                                 key={index}
-                                onClick={() => setInput(action.query)}
+                                onClick={() => {
+                                    setInput(action.query);
+                                    setSelectedTask(action.task);
+                                }}
                                 className="w-full flex items-center gap-2 p-2 text-sm text-left rounded-lg hover:bg-gray-100 transition-colors"
                             >
                                 <action.icon size={16} className="text-brand-600" />
@@ -192,7 +225,19 @@ export default function CopilotChat() {
                 {/* Input Area */}
                 <div className="bg-white border-t border-gray-200 p-4">
                     <div className="max-w-4xl mx-auto">
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 items-center">
+                            <div className="relative">
+                                <select
+                                    value={selectedTask}
+                                    onChange={(e) => setSelectedTask(e.target.value)}
+                                    className="appearance-none bg-gray-100 border border-gray-300 rounded-lg pl-3 pr-8 py-3 text-sm focus:ring-2 focus:ring-brand-500"
+                                >
+                                    {tasks.map(task => (
+                                        <option key={task.id} value={task.id}>{task.name}</option>
+                                    ))}
+                                </select>
+                                <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                            </div>
                             <input
                                 type="text"
                                 value={input}

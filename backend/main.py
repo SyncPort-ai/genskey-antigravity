@@ -2,6 +2,11 @@
 Genskey Platform - FastAPI Main Application
 Enterprise LBP Discovery Platform
 """
+import sys
+from pathlib import Path
+
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,6 +24,8 @@ from backend.services.twin_service import router as twin_router
 from backend.services.trial_service import router as trial_router
 from backend.routes.llm_config import router as llm_config_router
 from backend.routes.literature_service import router as literature_router
+from backend.routes.agent_router import router as agent_router
+from backend.routes.document_service import router as document_router
 
 
 @asynccontextmanager
@@ -137,6 +144,18 @@ app.include_router(
     literature_router,
     prefix=f"{settings.API_PREFIX}/literature",
     tags=["GenskeyLit - Literature RAG"]
+)
+
+app.include_router(
+    agent_router,
+    prefix="/api/agent",
+    tags=["AI Copilot - Agent Router"]
+)
+
+app.include_router(
+    document_router,
+    prefix="/api/documents",
+    tags=["Document Generation"]
 )
 
 if __name__ == "__main__":

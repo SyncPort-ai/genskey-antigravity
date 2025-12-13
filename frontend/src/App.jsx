@@ -32,6 +32,7 @@ import Pharmacovigilance from './pages/Pharmacovigilance';
 import KnowledgeGraph from './pages/KnowledgeGraph';
 import CandidateRanker from './pages/CandidateRanker';
 import LLMConfiguration from './pages/LLMConfiguration';
+import DocumentGenerator from './pages/DocumentGenerator';
 import * as FinalPages from './pages/FinalBatchPages';
 
 function App() {
@@ -110,6 +111,7 @@ function App() {
                         <Route path="/copilot/dashboard" element={<CopilotDashboard />} />
                         <Route path="/copilot/chat" element={<CopilotChat />} />
                         <Route path="/copilot/llm-config" element={<LLMConfiguration />} />
+                        <Route path="/copilot/document-generator" element={<DocumentGenerator />} />
                         <Route path="/copilot/*" element={<Navigate to="/copilot/dashboard" replace />} />
 
                         {/* Executive extra routes */}
